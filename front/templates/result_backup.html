@@ -1,0 +1,10 @@
+{% extends "drawingfield.html" %}
+{% load bootstrap4 %}
+{% block result %}
+{% load static %}
+{% for fin in result %}
+<p class="font-weight-bold text-md-center">BASED: {{ canvasPicture }}</p>
+{% empty %}
+<p class="font-weight-bold text-md-center">Result of recognition</p>
+{% endfor %}
+{% endblock %}

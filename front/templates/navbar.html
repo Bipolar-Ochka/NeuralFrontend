@@ -1,0 +1,19 @@
+{% extends "paint.html" %}
+{% load bootstrap4 %}
+{% block pagehead %}
+<nav class="navbar navbar-dark bg-dark">
+    <span class="navbar-brand mb-0 h1">Japanese Hieroglyphs Recognition</span>
+    <div class="dropdown justify-content-between">
+        <button class="btn btn-secondary dropdown-toggle bg-light text-dark" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ selectedType }}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+             <button class="dropdown-item" type="button" id="btn_hira">Hiragana</button>
+             <button class="dropdown-item" type="button" id="btn_kata">Katakana</button>
+             <button class="dropdown-item" type="button" id="btn_kanji">Kanji</button>
+             {% load static %}
+             <script type="text/javascript" src="{% static "/js/dropdownhandler.js" %}"></script>
+        </div>
+    </div>
+</nav>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JP Letters Recognition</title>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+<body>
+    <div class ="container-fluid">
+        <div class="row">
+            <div class="col-md flex-fill mb-1">
+                {% block pagehead %}
+                <h1 class="display-4">Japanese Hieroglyphs Recognition</h1>
+                {% endblock pagehead %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-auto">
+                {% block drawable %}Field of drawing{% endblock drawable %}
+            </div>
+            <div class="col-md-auto">
+                {% block result %}{% endblock result %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

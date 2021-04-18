@@ -1,0 +1,60 @@
+{% extends "drawingfield.html" %}
+{% load bootstrap4 %}
+{% block result %}
+{% load static %}
+<img id="replaceme" src="{% static "/img/cc1.gif" %}" width="300" height="300"></img>
+<script type="text/javascript">
+    function fill(array){
+        let replace = document.getElementById("replaceme");
+        let table = document.createElement('table');
+        table.id = "replaceme";
+        table.classList.add('table');
+        table.classList.add('table-striped');
+        table.classList.add('table-bordered');
+        let table_head = table.appendChild(document.createElement('thead'));
+        let table_head_row = table_head.appendChild(document.createElement('tr'));
+        let column1 = table_head_row.appendChild(document.createElement('th'));
+        column1.textContent = "Hieroglyph";
+        let column2 = table_head_row.appendChild(document.createElement('th'));
+        column2.textContent = "Probability";
+        let table_body =  table.appendChild(document.createElement('tbody'));
+        array.forEach((item) => {
+            row = table_body.appendChild(document.createElement('tr'));
+            let column1 = row.appendChild(document.createElement('th'));
+            //column1.textContent = item['mark'];
+            let mark = column1.appendChild(document.createElement('h1'));
+            mark.classList.add('display-4');
+            mark.textContent = item['mark'];
+            let column2 = row.appendChild(document.createElement('th'));
+            column2.classList.add('align-content-center');
+            let prob = column2.appendChild(document.createElement('p'));
+            prob.classList.add('text-md-center');
+            prob.textContent = item['prob'];
+            //column2.textContent = item['prob'];
+        });
+
+        replace.replaceWith(table);
+    }
+</script>
+<script type="text/javascript">
+    function nani(code){
+        let replace = document.getElementById("replaceme");
+        console.log(code);
+        if(code === 1) {
+            let obamium = document.createElement('img');
+            obamium.id = "replaceme";
+            obamium.src = "{% static "/img/cc1.gif" %}";
+            obamium.width = "300";
+            obamium.height="300";
+            replace.replaceWith(obamium);
+        }else if(code === 2){
+            let vzlom = document.createElement('img');
+            vzlom.id = "replaceme";
+            vzlom.src = "{% static "/img/kek.gif" %}";
+            vzlom.width = "300";
+            vzlom.height="300";
+            replace.replaceWith(vzlom);
+        }
+    }
+</script>
+{% endblock %}

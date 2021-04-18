@@ -1,0 +1,24 @@
+{% extends "navbar.html" %}
+{% load bootstrap4 %}
+
+{% block drawable %}
+{% load static %}
+{% if canvasPicture == None or canvasPicture == "" %}
+<canvas id="paint" width="450" height="450" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
+{% else %}
+<canvas id="paint" width="450" height="450" style="border: 5px solid #000000;">Update your browser to support HTML5 Canvas</canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("paint");
+    var ctx = canvas.getContext("2d");
+    var image = new Image();
+    image.onload = function() {
+        ctx.drawImage(image, 0, 0);
+    };
+    image.src = {{ canvasPicture }};
+</script>
+{% endif %}
+<p class="font-weight-bold text-md-center d-flex flex-row justify-content-between"><button class="btn btn-secondary mb-1" type="button" id="clearbtn">CLEAR</button>
+<button class="btn btn-secondary mb-1" type="button" id="sendbtn">SEND</button></p>
+<script type="text/javascript" src="{% static "/js/pencil.js" %}"></script>
+<script type="text/javascript" src="{% static "/js/sender.js" %}"></script>
+{% endblock %}
